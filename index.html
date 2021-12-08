@@ -7,127 +7,16 @@ h1 {color: white}
 p {color: white}
 
 </style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="../jquery.maphilight.min.js"></script>
-	<script type="text/javascript">$(function() {
-		$('.map').maphilight();
-	});
-        
-        
+<!-- Add maphilight plugin -->
+<script type="text/javascript" src="jquery.maphilight.min.js"></script>
+
+<!-- Activate maphilight plugin -->
+<script type="text/javascript">$(function() {
+        $('.map').maphilight();
+    });
 </script>
-<script>
-
-01
-$('.map').maphilight({
-02
- 
-03
-  // fill the shape
-04
-  fill:true,
-05
- 
-06
-  // fill color
-07
-  fillColor:'000000',
-08
- 
-09
-  // fill opacity
-10
-  fillOpacity: 0.2,
-11
- 
-12
-  // outline the shape
-13
-  stroke:true,
-14
- 
-15
-  // stroke color
-16
-  strokeColor:'ff0000',
-17
- 
-18
-  // stroke opacity
-19
-  strokeOpacity: 1,
-20
- 
-21
-  // stroke width
-22
-  strokeWidth: 1,
-23
- 
-24
-  // fade in the shapes on mouseover
-25
-  fade:true,
-26
- 
-27
-  // always show the hilighted areas
-28
-  alwaysOn:false,
-29
- 
-30
-  // never show the hilighted areas
-31
-  neverOn:false,
-32
- 
-33
-  // The name of an attribute to group areas by, or a selector for elements in the map to group.
-34
-  // Or an array of the same
-35
-  // If this is present then all areas in the map which have the same attribute value as the hovered area will hilight as well
-36
-  groupBy:false,
-37
- 
-38
-  // If true, applies the class on the <img> to the wrapper div maphilight created.
-39
-  // If a string, that string is used as a class on the wrapper div.
-40
-  wrapClass:true,
-41
-   
-42
-  // apply a shadow to the shape
-43
-  shadow:false,
-44
-  shadowX: 0,
-45
-  shadowY: 0,
-46
-  shadowRadius: 6,
-47
-  shadowColor:'000000',
-48
-  shadowOpacity: 0.8,
-49
-  // Can be 'outside', 'inside', or 'both'.
-50
-  shadowPosition:'outside',
-51
-  // Can be 'stroke' or 'fill'
-52
-  shadowFrom:false,
-53
-   
-54
-});
-</script>
-
 
 </head>
 
