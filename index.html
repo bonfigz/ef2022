@@ -66,10 +66,37 @@
 });</script>
 
 
+<script>window.onload = function () {
+    document.getElementById('button').onclick = function () {
+        document.getElementById('modal').style.display = "none"
+    };
+};</script>
+
+
+<div id="modal">
+    <div class="modalconent">
+         
+<h1>Electric Forest 2022 Interactive Music Lineup</h1>
+<p>Click on the name of the artist to check out some of their music. Artists you've viewed will stay highlighted as long as you keep the page open. Happy Forest!</p>
+
+        <button id="button">Close</button>
+    </div>
+</div>
+
 <style>
+    #modal h1{
+color:green;
+    }
+#modal p{
+background: black;
+color:white;
+#button{
+color:black;
+
+}
+    }
 body 
 {background-color: black;
-color:white;
 }
 div {
 width: 100%;
