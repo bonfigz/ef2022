@@ -22,8 +22,57 @@ p {color: white}
 </style>
 
 </head>
+<script>$(function() {
+   //using the jquery map highlight plugin:
+   //http://davidlynch.org/js/maphilight/docs/
+  
+   //initialize highlight
+   $('.map').maphilight({strokeColor:'808080',strokeWidth:0,fillColor:'00cd27'});
 
 
+   //hover effect
+   $('#maplink1').mouseover(function(e) {
+      $('#map1').mouseover();
+   }).mouseout(function(e) {
+      $('#map1').mouseout();
+   }).click(function(e) { e.preventDefault(); });
+               
+        
+   // initialize tabbing
+   $(".tabs area:eq(0)").each(function(){
+       $(this).addClass("current");
+   });
+   $(".tab-content").each(function(){
+       $(this).children(":not(:first)").hide();    
+   });
+            
+            
+   //map clicks
+   $(".tabs area").click(function(){
+              
+   //This block is what creates highlighting by trigger the "alwaysOn", 
+   var data = $(this).data('maphilight') || {};
+   data.alwaysOn = !data.alwaysOn;
+   $(this).data('maphilight', data).trigger('alwaysOn.maphilight');
+   //there is also "neverOn" in the docs, but not sure how to get it to work
+              
+          
+   if ($(this).hasClass("current") == false)
+   {
+       var thisTarget = $(this).attr("href");
+                                               
+       $(this).parents(".tabs").find('area.current').removeClass('current');
+                    
+       $(this).addClass('current');
+                    
+       $(this).parents(".tabs").nextAll(".tab-content").children(":visible").fadeOut(1, function() {
+           $(thisTarget).fadeIn("fast");
+       });
+
+   }
+   return false; 
+  });
+});</script>
 
 <body>
 
@@ -31,10 +80,10 @@ p {color: white}
 <center><h1>Electric Forest 2022 Interactive Music Lineup</h1>
 <p>Click on the name of the artist to check out some of their music</p>
 
-<img class="map" src="https://electricforestfestival.com/wp-content/uploads/2021/12/EF2022-Lineup-1299x2000.jpg" alt="EF2022" usemap="#Map">
-
-<map name="Map">
-    <area target="_blank" alt="Disclosure" title="Disclosure" href="https://open.spotify.com/artist/6nS5roXSAGhTGr34W6n7Et?si=75e35f6ecdef453f" coords="93,358,286,405" shape="rect" >
+  <img src="https://electricforestfestival.com/wp-content/uploads/2021/12/EF2022-Lineup-1299x2000.jpg" class="map" usemap="#simple" />
+  
+  <map class="tabs" name="simple">
+   <area target="_blank" alt="Disclosure" title="Disclosure" href="https://open.spotify.com/artist/6nS5roXSAGhTGr34W6n7Et?si=75e35f6ecdef453f" coords="93,358,286,405" shape="rect" >
     <area target="_blank" alt="Griz" title="Griz" href="https://open.spotify.com/artist/25oLRSUjJk4YHNUsQXk7Ut?si=d7c90dbd08004b8e" coords="442,365,517,403" shape="rect">
     <area target="_blank" alt="Porter Robinson" title="Porter Robinson" href="https://open.spotify.com/artist/3dz0NnIZhtKKeXZxLOxCam?si=19dfb15a7bfe41cb" coords="672,364,961,402" shape="rect">
     <area target="_blank" alt="Louis The Child" title="Louis The Child" href="https://open.spotify.com/artist/7wg1qvie3KqDNQbAkTdbX0?si=81b8be7ca03a441a" coords="1010,365,1258,402" shape="rect">
@@ -155,7 +204,9 @@ p {color: white}
     <area target="_blank" alt="Sidepiece" title="Sidepiece" href="https://open.spotify.com/artist/5czbzNZZfWpyFgZyfT3Mkk?si=3f3256f9b17e4a91" coords="666,856,834,879" shape="rect">
     <area target="_blank" alt="Fisher" title="Fisher" href="https://open.spotify.com/artist/1VJ0briNOlXRtJUAzoUJdt?si=94e460080a7848d9" coords="848,411,953,447" shape="rect">
     <area target="_blank" alt="The String Cheese Incident" title="The String Cheese Incident" href="https://open.spotify.com/artist/7N3JfLDzzjXdPbsyco7X0l?si=12016d19beee4e3a" coords="402,535,849,575" shape="rect">
-</map>
+
+  </map>
+  
 
 
 </center>
